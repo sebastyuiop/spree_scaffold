@@ -1,0 +1,4 @@
+en:
+  new_<%= model_path %>: "New <%= model_path %>"
+  listing_<%= model_path %>s: "Listing <%= model_path %>s"
+  editing_<%= model_path %>: "Editing <%= model_path %>"

@@ -1,0 +1,10 @@
+Description:
+    Explain the generator
+    
+    remember to add routes
+
+Example:
+    rails generate spree_scaffold Thing
+
+    This will create:
+        what/will/it/create
