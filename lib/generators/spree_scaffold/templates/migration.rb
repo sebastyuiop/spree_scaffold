@@ -1,6 +1,6 @@
 class Create<%= class_name.pluralize %> < ActiveRecord::Migration
   def self.up
-    create_table :<%= table_name %> do |t|
+    create_table :<%= model_path %>s do |t|
     <%- for attribute in model_attributes -%>
       t.<%= attribute.type %> :<%= attribute.name %>
     <%- end -%>
@@ -11,6 +11,6 @@ class Create<%= class_name.pluralize %> < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :<%= table_name %>
+    drop_table :<%= model_path %>s
   end
 end

@@ -11,7 +11,7 @@ class Admin::<%= class_name %>sController < Admin::ResourceController
   def create
     @<%= model_path %> = <%= class_name %>.new(params[:<%= model_path %>])
     if @<%= model_path %>.save
-      flash[:notice] = "Successfully created <%= model_path %>."
+      flash[:notice] = "Successfully created <%= display_name %>."
       redirect_to admin_<%= model_path %>s_url
     else
       render :action => 'new'
@@ -25,7 +25,7 @@ class Admin::<%= class_name %>sController < Admin::ResourceController
   def update
     @page = <%= class_name %>.find(params[:id])
     if @<%= model_path %>.update_attributes(params[:<%= model_path %>])
-      flash[:notice] = "Successfully updated <%= model_path %>."
+      flash[:notice] = "Successfully updated <%= display_name %>."
       redirect_to admin_<%= model_path %>s_url
     else
       render :action => 'edit'
@@ -35,7 +35,7 @@ class Admin::<%= class_name %>sController < Admin::ResourceController
   def destroy
     @<%= model_path %> = <%= class_name %>.find(params[:id])
     @<%= model_path %>.destroy
-    flash[:notice] = "Successfully destroyed <%= model_path %>."
+    flash[:notice] = "Successfully destroyed <%= display_name %>."
     redirect_to admin_<%= model_path %>s_url
   end
 

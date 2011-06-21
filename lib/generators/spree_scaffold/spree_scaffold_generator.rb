@@ -52,7 +52,7 @@ class SpreeScaffoldGenerator < Rails::Generators::Base
   private
   
   def model_path
-    scaffold_name.downcase
+    scaffold_name.underscore.downcase
   end
   
   def class_name
@@ -60,7 +60,15 @@ class SpreeScaffoldGenerator < Rails::Generators::Base
   end
   
   def table_name
-    scaffold_name.downcase.pluralize
+    scaffold_name.downcase.underscore.pluralize
+  end
+  
+  def display_name
+    scaffold_name.underscore.titleize
+  end
+  
+  def display_name_plural
+    scaffold_name.underscore.titleize.pluralize
   end
   
 end
