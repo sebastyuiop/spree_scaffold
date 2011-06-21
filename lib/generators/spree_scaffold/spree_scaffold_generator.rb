@@ -44,10 +44,11 @@ class SpreeScaffoldGenerator < Rails::Generators::Base
   def create_locale
     template 'en.yml', "config/locales/en_#{model_path}s.yml"
   end
-  
-  def create_hooks
-    template 'hooks.rb', "config/initializers/spree_scaffold_#{model_path}s_hooks.rb"
-  end
+
+  # Removed until can figure out tab duplication bug
+  # def create_hooks
+  #   template 'hooks.rb', "config/initializers/spree_scaffold_#{model_path}s_hooks.rb"
+  # end
   
   private
   
