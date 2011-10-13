@@ -26,29 +26,29 @@ class SpreeScaffoldGenerator < Rails::Generators::Base
   end
   
   def create_controller
-    template 'controller.rb', "app/controllers/admin/#{model_path}s_controller.rb"
+    template 'controller.rb', "app/controllers/admin/#{model_path.pluralize}_controller.rb"
   end
   
   def create_views
     ['index','new','edit'].each do |view|
-      template "views/#{view}.html.erb", "app/views/admin/#{model_path}s/#{view}.html.erb"
+      template "views/#{view}.html.erb", "app/views/admin/#{model_path.pluralize}/#{view}.html.erb"
     end
-    template "views/_form.html.erb", "app/views/admin/#{model_path}s/_form.html.erb"
+    template "views/_form.html.erb", "app/views/admin/#{model_path.pluralize}/_form.html.erb"
   end
   
   def create_migration
     stamp =  Time.now.utc.strftime("%Y%m%d%H%M%S")
-    template 'migration.rb', "db/migrate/#{stamp}_create_#{model_path}s.rb"
+    template 'migration.rb', "db/migrate/#{stamp}_create_#{model_path.pluralize}.rb"
   end
   
   def create_locale
-    template 'en.yml', "config/locales/en_#{model_path}s.yml"
+    template 'en.yml', "config/locales/en_#{model_path.pluralize}.yml"
   end
 
   # Removed until can figure out tab duplication bug
-  # def create_hooks
-  #   template 'hooks.rb', "config/initializers/spree_scaffold_#{model_path}s_hooks.rb"
-  # end
+  def create_hooks
+    template 'hooks.rb', "config/initializers/spree_scaffold_#{model_path.pluralize}_hooks.rb"
+  end
   
   private
   
