@@ -17,4 +17,5 @@ Gem::Specification.new do |s|
   s.requirements << 'none'
 
   s.add_dependency('spree_core', '>= 0.60.0.RC1')
+  s.add_dependency('deface', '> 0')
 end

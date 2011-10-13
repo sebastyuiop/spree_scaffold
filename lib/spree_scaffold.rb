@@ -1,3 +1,4 @@
+require 'deface'
 require 'spree_core'
 require 'spree_scaffold_hooks'
 
