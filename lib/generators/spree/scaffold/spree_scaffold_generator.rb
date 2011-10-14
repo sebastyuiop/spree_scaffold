@@ -47,7 +47,7 @@ module Spree
         template 'en.yml', "config/locales/en_#{model_path.pluralize}.yml"
       end
 
-      # Removed until can figure out tab duplication bug
+      # Added back since using deface
       def create_hooks
         template 'hooks.rb', "config/initializers/spree_scaffold_#{model_path.pluralize}_hooks.rb"
       end

@@ -1,7 +1,7 @@
-class Admin::<%= class_name %>sController < Admin::ResourceController
+class Admin::<%= class_name.pluralize %>Controller < Admin::ResourceController
   
   def index
-    @<%= model_path %>s = <%= class_name %>.paginate(:per_page => 50, :page => params[:page])
+    @<%= model_path.pluralize %> = <%= class_name %>.paginate(:per_page => 50, :page => params[:page])
   end
 
   def new
@@ -12,7 +12,7 @@ class Admin::<%= class_name %>sController < Admin::ResourceController
     @<%= model_path %> = <%= class_name %>.new(params[:<%= model_path %>])
     if @<%= model_path %>.save
       flash[:notice] = "Successfully created <%= display_name %>."
-      redirect_to admin_<%= model_path %>s_url
+      redirect_to admin_<%= model_path.pluralize %>_url
     else
       render :action => 'new'
     end
@@ -26,7 +26,7 @@ class Admin::<%= class_name %>sController < Admin::ResourceController
     @page = <%= class_name %>.find(params[:id])
     if @<%= model_path %>.update_attributes(params[:<%= model_path %>])
       flash[:notice] = "Successfully updated <%= display_name %>."
-      redirect_to admin_<%= model_path %>s_url
+      redirect_to admin_<%= model_path.pluralize %>_url
     else
       render :action => 'edit'
     end
@@ -36,7 +36,7 @@ class Admin::<%= class_name %>sController < Admin::ResourceController
     @<%= model_path %> = <%= class_name %>.find(params[:id])
     @<%= model_path %>.destroy
     flash[:notice] = "Successfully destroyed <%= display_name %>."
-    redirect_to admin_<%= model_path %>s_url
+    redirect_to admin_<%= model_path.pluralize %>_url
   end
 
 end
