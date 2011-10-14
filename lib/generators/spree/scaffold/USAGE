@@ -1,10 +1,18 @@
 Description:
-    Explain the generator
-    
-    remember to add routes
+		A basic admin scaffold generator for Spree
+    Creates a CRUD interface for whatever you want using the Spree admin styling
+		It also creates an initializer that insert an admin menu item for the model you created
 
 Example:
-    rails generate spree_scaffold Thing
+    rails generate spree:scaffold ModelName attribute_1:type_1 attribute_2:type_2
 
     This will create:
-        what/will/it/create
+	    app/models/model_name.rb
+	    app/controllers/admin/model_names_controller.rb
+	    app/views/admin/model_names/index.html.erb
+	    app/views/admin/model_names/new.html.erb
+	    app/views/admin/model_names/edit.html.erb
+	    app/views/admin/model_names/_form.html.erb
+	    db/migrate/TIMESTAMP_create_model_names.rb
+	    config/locales/en_model_names.yml
+	    config/initializers/spree_scaffold_model_names_hooks.rb

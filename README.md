@@ -5,7 +5,7 @@ A basic admin scaffold generator for Spree.
 
 Creates a CRUD interface for whatever you want using the Spree admin styling.
 
-It also creates an admin menu item but there's a bug at the moment which means you get two.
+It also creates an admin menu item using Deface::Override in an initializer. Don't forget to restart the app for the button to show up in the admin menu bar.
 
 Example
 =======
@@ -16,7 +16,7 @@ To install
 
 To generate a scaffold:
 
-    rails g spree_scaffold Cat name:string colour:string
+    rails g spree:scaffold Cat name:string colour:string
 
 Which produces:
 
