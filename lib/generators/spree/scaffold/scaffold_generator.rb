@@ -7,7 +7,7 @@ module Spree
       source_root File.expand_path('../templates', __FILE__)
   
       attr_accessor :scaffold_name, :model_attributes, :controller_actions
-  
+      
       argument :scaffold_name, :type => :string, :required => true, :banner => 'ModelName'
       argument :model_attribute_args, :type => :array, :default => [], :banner => 'model:attributes'
   
@@ -22,7 +22,7 @@ module Spree
           end
         end
       end
-  
+      
       def create_model
         template 'model.rb', "app/models/#{model_path}.rb"
       end
@@ -51,7 +51,7 @@ module Spree
       def create_hooks
         template 'hooks.rb', "config/initializers/spree_scaffold_#{model_path.pluralize}_hooks.rb"
       end
-  
+
       private
   
       def model_path
