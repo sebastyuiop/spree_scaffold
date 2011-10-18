@@ -1,7 +1,7 @@
 class Admin::<%= class_name.pluralize %>Controller < Admin::ResourceController
   
   def index
-    @<%= model_path.pluralize %> = <%= class_name %>.paginate(:per_page => 50, :page => params[:page])
+    @<%= model_path.pluralize %> = <%= class_name %>.page(params[:page] || 1).per(50)
   end
 
   def new
