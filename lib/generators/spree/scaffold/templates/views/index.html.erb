@@ -7,7 +7,7 @@
   <br class='clear' />
 </div>
 
-<h1><%%= t("listing_<%= model_path %>s") %></h1>
+<h1><%%= t("listing_<%= model_path.pluralize %>") %></h1>
 
 <table class="index">
   <thead>
@@ -19,7 +19,7 @@
   </tr>
   </thead>
   <tbody>
-    <%% @<%= model_path %>s.each do |<%= model_path %>|%>
+    <%% @<%= model_path.pluralize %>.each do |<%= model_path %>|%>
       <tr id="<%%= dom_id <%= model_path %> %>">
         <% for attribute in model_attributes -%>
           <td width="350px"><%%= link_to <%= model_path %>.<%= attribute.name %>, edit_object_url(<%= model_path %>) %></td>
@@ -33,4 +33,4 @@
   </tbody>
 </table>
 
-<%%= will_paginate(:previous_label => "&#171; #{t('previous')}", :next_label => "#{t('next')} &#187;") %>
+<%%= paginate @<%= model_path.pluralize %> %>
